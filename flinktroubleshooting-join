@@ -1,0 +1,23 @@
+https://issues.apache.org/jira/browse/FLINK-22954?page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel&focusedCommentId=17360522
+
+When I run this 
+
+INSERT INTO MATCHED_CI_IDS
+SELECT 
+  adr.CI_ID,
+  adr.CI_A1_1,
+  adr.CI_STATE_C,
+  adr.SYS_STUS_C,
+  'MATCHED' AS MATCH_STATUS
+FROM 
+  CBA_CI_ADR adr
+JOIN 
+  CBA_CI ci
+ON 
+  adr.CI_ID = ci.CI_ID;
+
+Something went wrong.
+Table sink 'default.cluster_0.MATCHED_CI_IDS' doesn't support consuming update and delete changes which is produced by node Join(joinType=[InnerJoin], where=[(CI_ID = CI_ID0)], 
+select=[CI_ID, CI_A1_1, CI_STATE_C, SYS_STUS_C, CI_ID0], leftInputSpec=[JoinKeyContainsUniqueKey], rightInputSpec=[JoinKeyContainsUniqueKey])
+
+
