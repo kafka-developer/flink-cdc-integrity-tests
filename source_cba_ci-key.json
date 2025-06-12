@@ -1,0 +1,8 @@
+{
+  "type": "record",
+  "name": "SOURCE_CBA_CI_key",
+  "namespace": "org.apache.flink.avro.generated.record",
+  "fields": [
+    { "name": "CI_ID", "type": "string" }
+  ]
+}
