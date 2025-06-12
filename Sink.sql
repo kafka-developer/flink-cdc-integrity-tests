@@ -5,7 +5,7 @@ CREATE TABLE SINK_ORPHAN_CI_ADR (
   PRIMARY KEY (CI_ID) NOT ENFORCED
 ) WITH (
   'connector' = 'confluent',
-  'kafka.topic' = 'orphan_ci_adr',
+  'kafka.topic' = 'sink_orphan_ci_adr',
   'format' = 'avro-registry'
 );
 
