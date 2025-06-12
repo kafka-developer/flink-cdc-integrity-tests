@@ -72,7 +72,10 @@ CREATE TABLE DLQ_CI_ADR (
 ) ;
 
 
----Insert Into Matched Output (Inner Join)
+--Insert Into Matched Output (Inner Join) ( Gives Issues Below )
+-- (Something went wrong.
+--Table sink 'default.cluster_0.DLQ_CI_ADR' doesn't support consuming update and delete changes which is produced 
+-- by node Join(joinType=[LeftOuterJoin], where=[(CI_ID = CI_ID0)], select=[CI_ID, CI_A1_1, CI_STATE_C, SYS_STUS_C, CI_ID0], leftInputSpec=[JoinKeyContainsUniqueKey], rightInputSpec=[JoinKeyContainsUniqueKey]))
 
 INSERT INTO MATCHED_CI_IDS
 SELECT 
@@ -89,7 +92,9 @@ ON
   adr.CI_ID = ci.CI_ID;
 
 
----Insert Into DLQ (Left Join + Filter Nulls)
+---Insert Into DLQ (Left Join + Filter Nulls) (Gives Issues Below)
+-- Table sink 'default.cluster_0.DLQ_CI_ADR' doesn't support consuming update and delete changes which is produced by node Join(joinType=[LeftOuterJoin], where=[(CI_ID = CI_ID0)], 
+-- select=[CI_ID, CI_A1_1, CI_STATE_C, SYS_STUS_C, CI_ID0], leftInputSpec=[JoinKeyContainsUniqueKey], rightInputSpec=[JoinKeyContainsUniqueKey])
 
 INSERT INTO DLQ_CI_ADR
 SELECT 
