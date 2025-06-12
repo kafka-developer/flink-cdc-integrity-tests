@@ -20,4 +20,6 @@ Something went wrong.
 Table sink 'default.cluster_0.MATCHED_CI_IDS' doesn't support consuming update and delete changes which is produced by node Join(joinType=[InnerJoin], where=[(CI_ID = CI_ID0)], 
 select=[CI_ID, CI_A1_1, CI_STATE_C, SYS_STUS_C, CI_ID0], leftInputSpec=[JoinKeyContainsUniqueKey], rightInputSpec=[JoinKeyContainsUniqueKey])
 
+select f.`my_field1`,f.`my_field3`,f1.`my_field3` from `poc_flink` f join `poc_flink_1` f1 on f.`my_field1`= f1.`my_field1`
+
 
