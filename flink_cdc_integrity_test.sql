@@ -3,11 +3,8 @@ CREATE TABLE CBA_CI (
   CI_ID STRING,
   PRIMARY KEY (CI_ID) NOT ENFORCED
 ) WITH (
-  'connector' = 'kafka',
-  'topic' = 'odh7ci_CBA_CI',
-  'properties.bootstrap.servers' = '<your-bootstrap-server>',
+  'topic' = 'flink_poc',
   'format' = 'json',
-  'scan.startup.mode' = 'latest-offset'
 );
 
 -- Create child table (CBA_CI_ADR)
@@ -63,13 +60,7 @@ CREATE TABLE MATCHED_CI_IDS (
   CI_STATE_C STRING,
   SYS_STUS_C STRING,
   MATCH_STATUS STRING
-) WITH (
-  'connector' = 'confluent',
-  'kafka.topic' = 'ciid_match_output',
-  'value.format' = 'avro'
-);
-
-
+) ;
 ---Sink Table for Orphaned Records (DLQ)
 
 CREATE TABLE DLQ_CI_ADR (
@@ -78,11 +69,7 @@ CREATE TABLE DLQ_CI_ADR (
   CI_STATE_C STRING,
   SYS_STUS_C STRING,
   ERROR_REASON STRING
-) WITH (
-  'connector' = 'confluent',
-  'kafka.topic' = 'ciid_orphan_dlq',
-  'value.format' = 'avro'
-);
+) ;
 
 
 ---Insert Into Matched Output (Inner Join)
