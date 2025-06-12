@@ -4,7 +4,7 @@ CREATE TABLE SOURCE_CBA_CI (
   PRIMARY KEY (CI_ID) NOT ENFORCED
 ) WITH (
   'connector' = 'confluent',
-  'kafka.topic' = 'cba_ci',
+  'kafka.topic' = 'source_cba_ci',
   'format' = 'avro-registry'
 );
 
@@ -14,6 +14,6 @@ CREATE TABLE SOURCE_CBA_CI_ADR (
   PRIMARY KEY (CI_ID) NOT ENFORCED
 ) WITH (
   'connector' = 'confluent',
-  'kafka.topic' = 'cba_ci_adr',
+  'kafka.topic' = 'source_cba_ci_adr',
   'format' = 'avro-registry'
 );
