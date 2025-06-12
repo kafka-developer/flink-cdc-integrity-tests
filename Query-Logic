@@ -1,0 +1,12 @@
+1.	Locate DMB13A (Master) Topic: This topic contains messages from the parent table (CBA_CI) and child table (CBA_CI_ADR). The key field for joining messages from both tables is CI_ID.
+
+2.	Extract and Save Matching Messages: Import/copy messages from the DMB13A topic for both parent and child tables, ensuring matching CI_IDs. Save these messages to a notepad file.
+
+3.	Extract and Modify Child Table Messages: Import/copy additional messages from the child table (CBA_CI_ADR). Modify the CI_ID in these messages with random numbers that do not exist in the parent table (CBA_CI). Save these modified messages to a separate notepad file.
+
+4.	Create and Populate POC Topic: Create a POC topic within the LAB environment. Export/copy all messages from the notepad files created in steps 2 and 3 to this POC topic.
+
+5.	Build Flink SQL Framework:
+               o	For messages with matching CI_IDs between the parent and child tables, create an intermediate table or write the data to another topic.
+               o	For messages with non-matching CI_IDs, write the data to a DLQ (Dead Letter Queue) topic.
+
