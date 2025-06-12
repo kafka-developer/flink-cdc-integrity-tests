@@ -15,24 +15,3 @@ This project validates referential integrity between parent (`CBA_CI`) and child
 ## 🧪 Test Case
 
 This simulates a child record with `CI_ID` = `99999999` that does not exist in the parent table.
-CREATE VIEW ORPHANS AS
-SELECT ...
-FROM ...
-LEFT JOIN ...
-WHERE ...;
-
-INSERT INTO ORPHAN_CI_ADR
-SELECT * FROM ORPHANS;
-
-
-CREATE TABLE ORPHAN_CI_ADR (
-  CI_ID STRING,
-  CI_A1_1 STRING,
-  reason STRING
-) WITH (
-  'connector' = 'kafka',
-  'topic' = 'orphan-ci-adr',
-  'properties.bootstrap.servers' = 'broker:9092',
-  'format' = 'json',
-  'scan.startup.mode' = 'earliest-offset'
-);
