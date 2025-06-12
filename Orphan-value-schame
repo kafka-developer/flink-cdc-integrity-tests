@@ -3,25 +3,8 @@
   "name": "SINK_ORPHAN_CI_ADR_value",
   "namespace": "org.apache.flink.avro.generated.record",
   "fields": [
-    {
-      "name": "CI_ID",
-      "type": "string"
-    },
-    {
-      "name": "CI_A1_1",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "ERROR_REASON",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    }
+    { "name": "CI_ID", "type": "string" },
+    { "name": "CI_A1_1", "type": ["null", "string"], "default": null },
+    { "name": "ERROR_REASON", "type": ["null", "string"], "default": null }
   ]
 }
